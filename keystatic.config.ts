@@ -1,9 +1,16 @@
 import { config, fields, collection } from "@keystatic/core";
 
+// Local storage (writes straight to the filesystem) only works where a real
+// disk exists — `astro dev` on a dev machine. The deployed site runs on
+// Cloudflare Workers, which has no filesystem, so production uses GitHub
+// storage instead: edits go through the GitHub API as real commits,
+// authenticated via a GitHub App (see DEPLOY.md).
+const isDev = process.argv.includes("dev");
+
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage: isDev
+    ? { kind: "local" }
+    : { kind: "github", repo: { owner: "PepeSchwerter", name: "hauss-landing" } },
   collections: {
     projects: collection({
       label: "Proyectos",

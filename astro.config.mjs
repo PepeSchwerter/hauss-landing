@@ -5,9 +5,11 @@ import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import cloudflare from '@astrojs/cloudflare';
 
-// Keystatic injects on-demand (/keystatic) admin routes, which need a server
-// adapter to build. Only load it in `astro dev` so `astro build` stays fully
-// static, matching the Cloudflare Pages static deploy target.
+// Keystatic injects on-demand (/keystatic) admin routes. They're now built
+// for production too (served as a Cloudflare Pages Function, same as
+// src/pages/api/contacto.ts) so the client can edit content live — see
+// DEPLOY.md. `isDev` still controls the adapter below: it stays out of
+// `astro dev` for the workerd/filesystem reasons described there.
 const isDev = process.argv.includes('dev');
 
 // https://astro.build/config
@@ -33,5 +35,5 @@ export default defineConfig({
   // form appeared to vanish). Excluding the adapter from `dev` keeps the
   // whole dev server on plain Node, matching how it behaved before v14.
   adapter: isDev ? undefined : cloudflare({ prerenderEnvironment: 'node' }),
-  integrations: [react(), ...(isDev ? [keystatic()] : [])]
+  integrations: [react(), keystatic()]
 });
