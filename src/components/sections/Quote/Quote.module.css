@@ -1,0 +1,82 @@
+.quote {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-alt);
+}
+
+.inner {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 88px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.text {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--text-display-md);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--ink-950);
+  margin: 0;
+  max-width: 900px;
+}
+
+.square1 {
+  position: absolute;
+  top: -40px;
+  right: 80px;
+  width: 140px;
+  height: 140px;
+  background: var(--yellow-500);
+}
+
+.square2 {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: var(--pink-300);
+}
+
+.square3 {
+  position: absolute;
+  bottom: 40px;
+  right: 320px;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--ink-950);
+}
+
+@media (max-width: 819px) {
+  .inner {
+    padding: 56px 20px;
+  }
+
+  .square1 {
+    top: -30px;
+    right: -30px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .square2 {
+    bottom: -50px;
+    right: -20px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .square3 {
+    bottom: 30px;
+    right: 90px;
+    width: 20px;
+    height: 20px;
+  }
+}

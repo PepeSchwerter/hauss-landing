@@ -1,0 +1,23 @@
+:root{
+--text-display-xl:clamp(2.75rem,2rem + 3.2vw,4.75rem); /* @kind other */
+--text-display-lg:clamp(2.25rem,1.7rem + 2.4vw,3.5rem); /* @kind other */
+--text-display-md:clamp(1.75rem,1.4rem + 1.4vw,2.5rem); /* @kind other */
+--text-heading:1.5rem;
+--text-subheading:1.125rem;
+--text-body-lg:1.125rem;
+--text-body:1rem;
+--text-body-sm:0.875rem;
+--text-caption:0.75rem;
+--lh-tight:1.05; /* @kind other */
+--lh-snug:1.2; /* @kind other */
+--lh-normal:1.5; /* @kind other */
+--lh-relaxed:1.65; /* @kind other */
+--fw-regular:400; /* @kind other */
+--fw-medium:500; /* @kind other */
+--fw-semibold:600; /* @kind other */
+--fw-bold:700; /* @kind other */
+--fw-extrabold:800; /* @kind other */
+--ls-tight:-0.02em; /* @kind other */
+--ls-normal:0; /* @kind other */
+--ls-wide:0.08em; /* @kind other */
+}

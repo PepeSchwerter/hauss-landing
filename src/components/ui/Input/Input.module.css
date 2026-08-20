@@ -1,0 +1,32 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-body);
+}
+
+.label {
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.input {
+  padding: 12px 14px;
+  font-size: var(--text-body);
+  font-family: var(--font-body);
+  border: 2px solid var(--ink-950);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--text-primary);
+  outline: none;
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.input:focus-visible {
+  box-shadow: 0 0 0 3px var(--yellow-500);
+}
+
+.textarea {
+  resize: vertical;
+}

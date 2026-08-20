@@ -1,0 +1,37 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+}
+
+.ink {
+  background: var(--ink-950);
+  color: #fff;
+}
+
+.yellow {
+  background: var(--yellow-500);
+  color: var(--ink-950);
+}
+
+.red {
+  background: var(--red-500);
+  color: #fff;
+}
+
+.pink {
+  background: var(--pink-300);
+  color: var(--ink-950);
+}
+
+.outline {
+  background: transparent;
+  color: var(--ink-950);
+  border: 1px solid var(--border-strong);
+}

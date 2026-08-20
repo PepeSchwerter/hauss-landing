@@ -1,0 +1,7 @@
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font-family:var(--font-body);font-size:var(--text-body);line-height:var(--lh-normal);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);margin:0}
+p{margin:0}
+a{color:var(--ink-950)}
+a:hover{color:var(--red-500)}
+button{font-family:var(--font-body)}

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/tokens/colors.css">
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/tokens/typography.css">
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/tokens/base.css">
+<link rel="stylesheet" href="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/styles.css">
+<script src="_ds/hauss-design-system-f69ac8a5-a6a5-48d3-857a-80ffb37cb953/_ds_bundle.js"></script>
+<style>
+  a { color: var(--ink-950); text-decoration: none; }
+  a:hover { color: var(--red-500); }
+  body { margin: 0; background: var(--surface-page); }
+  input, textarea { font-family: var(--font-body); }
+</style>
+</helmet>
+
+<div style="{{ pageStyle }}">
+
+  <nav style="{{ navOuterStyle }}">
+    <div style="{{ navStyle }}">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink-950);">HAUSS</div>
+      <div style="{{ navLinksStyle }}">
+        <a href="#nosotros" style="font-size:var(--text-body-sm);font-weight:600;">Nosotros</a>
+        <a href="#valores" style="font-size:var(--text-body-sm);font-weight:600;">Misión y valores</a>
+        <a href="#proyectos" style="font-size:var(--text-body-sm);font-weight:600;">Proyectos</a>
+        <a href="#contacto" style="font-size:var(--text-body-sm);font-weight:600;">Contacto</a>
+      </div>
+      <div style="{{ navRightStyle }}">
+        <a href="#contacto" style="{{ ctaLinkStyle }}">
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" size="sm" hint-size="auto,36px">Contáctanos</x-import>
+        </a>
+        <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{ toggleMenu }}" aria-label="Abrir menú" style="{{ burgerButtonStyle }}">
+            <span style="{{ burgerLineStyle }}"></span>
+            <span style="{{ burgerLineStyle }}"></span>
+            <span style="{{ burgerLineStyle }}"></span>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+  </nav>
+
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="{{ mobileMenuStyle }}">
+      <a href="#nosotros" onClick="{{ closeMenu }}" style="{{ mobileLinkStyle }}">Nosotros</a>
+      <a href="#valores" onClick="{{ closeMenu }}" style="{{ mobileLinkStyle }}">Misión y valores</a>
+      <a href="#proyectos" onClick="{{ closeMenu }}" style="{{ mobileLinkStyle }}">Proyectos</a>
+      <a href="#contacto" onClick="{{ closeMenu }}" style="{{ mobileLinkStyle }}">Contacto</a>
+    </div>
+  </sc-if>
+
+  <section style="{{ heroStyle }}">
+    <div style="{{ heroCopyStyle }}">
+      <h1 style="{{ heroTitleStyle }}">Concreta tus ideas.</h1>
+      <p style="font-size:var(--text-body-lg);color:var(--ink-800);max-width:460px;margin:0;line-height:var(--lh-relaxed);">Obras nuevas y remodelaciones en el área privada y pública, con la modalidad de llave en mano. Un solo equipo a cargo de tu proyecto, de principio a fin.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#contacto">
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" variant="dark" size="lg" hint-size="auto,56px">Contáctanos</x-import>
+        </a>
+        <a href="#proyectos">
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" variant="ghost" size="lg" hint-size="auto,56px">Ver proyectos</x-import>
+        </a>
+      </div>
+    </div>
+    <div style="{{ heroImageWrapStyle }}">
+      <img src="https://hauss.cl/img/landing2.jpg" alt="Casa Parpalén" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </section>
+
+  <section id="nosotros" style="{{ aboutStyle }}">
+    <div style="{{ aboutImageWrapStyle }}">
+      <div style="{{ aboutBlockAccentStyle }}"></div>
+      <img src="https://hauss.cl/img/casa2.jpg" alt="Casa Aguirre" style="{{ aboutImageStyle }}">
+    </div>
+    <div>
+      <h2 style="font-size:var(--text-display-md);margin:0 0 20px;color:var(--text-primary);line-height:var(--lh-snug);">Nuestra empresa</h2>
+      <p style="font-size:var(--text-body-lg);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0 0 16px;">Empresa Constructora Hauss nació en el Sur de Chile en el año 2014, como resultado de un anhelo del matrimonio de una arquitecto y un constructor civil, que en conjunto volcaron sus años de experiencia en proyectos de construcción y arquitectura.</p>
+      <p style="font-size:var(--text-body-lg);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0 0 28px;">Desarrollamos proyectos tanto en el área privada como pública, obras nuevas o remodelaciones, con la modalidad de llave en mano.</p>
+      <a href="#valores">
+        <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" variant="ghost" hint-size="auto,44px">Cómo trabajamos →</x-import>
+      </a>
+    </div>
+  </section>
+
+  <section style="{{ quoteStyle }}">
+    <div style="{{ quoteSquare1Style }}"></div>
+    <div style="{{ quoteSquare2Style }}"></div>
+    <div style="{{ quoteSquare3Style }}"></div>
+    <div style="{{ quoteInnerStyle }}">
+      <p style="{{ quoteTextStyle }}">En HAUSS buscamos hacer las cosas bien, poner toda nuestra pasión y esfuerzo para desarrollar el mejor proyecto.</p>
+      <a href="#contacto" style="position:relative;">
+        <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" variant="dark" size="lg" hint-size="auto,56px">Contáctanos</x-import>
+      </a>
+    </div>
+  </section>
+
+  <section id="valores" style="{{ valuesSectionStyle }}">
+    <div style="{{ valuesHeaderStyle }}">
+      <h2 style="font-size:var(--text-display-md);margin:0;color:var(--text-primary);">Cómo trabajamos</h2>
+    </div>
+
+    <div style="{{ missionGridStyle }}">
+      <div style="{{ missionCardStyle }}">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:var(--ls-wide);color:var(--ink-400);">01</div>
+        <h3 style="font-size:var(--text-heading);margin:8px 0 12px;color:var(--ink-950);">Misión</h3>
+        <p style="font-size:var(--text-body);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0;">Ofrecer una atención personalizada, de acuerdo a los requerimientos de nuestros clientes, asesorándolos en todas las etapas de su proyecto.</p>
+      </div>
+      <div style="{{ missionCardStyle }}">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:var(--ls-wide);color:var(--ink-400);">02</div>
+        <h3 style="font-size:var(--text-heading);margin:8px 0 12px;color:var(--ink-950);">Visión</h3>
+        <p style="font-size:var(--text-body);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0;">Construir obras de calidad para nuestros clientes, ya sean grandes o pequeños proyectos. Buscar una mejora continua en nuestros procesos de construcción. Propiciar un clima laboral agradable para trabajar, con el fin de que nuestro personal entregue lo mejor de sí.</p>
+      </div>
+      <div style="{{ missionCardAccentStyle }}">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:var(--ls-wide);color:var(--ink-600);">03</div>
+        <h3 style="font-size:var(--text-heading);margin:8px 0 12px;color:var(--ink-950);">Valores</h3>
+        <div style="{{ valuesListStyle }}">
+          <sc-for list="{{ values }}" as="v" hint-placeholder-count="5">
+            <div style="{{ valueItemStyle }}">
+              <span style="font-family:var(--font-display);font-weight:800;font-size:12px;color:var(--ink-600);">{{ v.num }}</span>
+              <span style="font-size:var(--text-body);font-weight:600;color:var(--ink-950);">{{ v.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos" style="{{ projectsSectionStyle }}">
+    <div style="{{ projectsInnerStyle }}">
+      <div style="{{ projectsHeaderStyle }}">
+        <h2 style="font-size:var(--text-display-md);margin:0;color:#fff;">Proyectos</h2>
+      </div>
+      <div style="{{ projectsGridStyle }}">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+          <div style="{{ projectCardStyle }}">
+            <div style="{{ projectImageWrapStyle }}">
+              <div style="{{ p.imageStyle }}"></div>
+            </div>
+            <div style="{{ projectBodyStyle }}">
+              <h3 style="font-family:var(--font-display);font-weight:800;font-size:var(--text-heading);margin:0 0 10px;color:var(--ink-950);">{{ p.title }}</h3>
+              <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Tag" tone="yellow" hint-size="auto,24px">Residencial</x-import>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="{{ contactSectionStyle }}">
+    <div style="{{ contactGridStyle }}">
+      <div style="{{ contactHeadingStyle }}">
+        <h2 style="font-size:var(--text-display-lg);margin:0 0 20px;color:var(--text-primary);line-height:var(--lh-snug);">Cuéntanos sobre tu proyecto</h2>
+        <p style="font-size:var(--text-body-lg);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0;max-width:420px;">Escríbenos y te asesoramos desde la primera idea hasta la entrega de la obra.</p>
+      </div>
+
+      <form style="{{ formStyle }}" onSubmit="{{ handleSubmit }}">
+        <div style="{{ formRowStyle }}">
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Input" label="Nombre" placeholder="Tu nombre" hint-size="100%,68px"></x-import>
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Input" label="Teléfono" placeholder="+56 9 1234 5678" type="tel" hint-size="100%,68px"></x-import>
+        </div>
+        <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Input" label="Correo electrónico" placeholder="tu@email.com" type="email" hint-size="100%,68px"></x-import>
+        <label style="display:flex;flex-direction:column;gap:6px;">
+          <span style="font-size:var(--text-body-sm);font-weight:600;color:var(--text-primary);">Tipo de proyecto y detalles</span>
+          <textarea placeholder="Obra nueva, remodelación, ubicación, plazos…" rows="4" style="padding:12px 14px;font-size:var(--text-body);border:2px solid var(--ink-950);border-radius:var(--radius-md);background:#fff;color:var(--text-primary);outline:none;resize:vertical;"></textarea>
+        </label>
+        <div>
+          <x-import component-from-global-scope="HAUSSDesignSystem_f69ac8.Button" variant="primary" size="lg" hint-size="auto,56px">Enviar</x-import>
+        </div>
+      </form>
+
+      <div style="{{ contactInfoStyle }}">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Ubicación</div>
+          <div style="font-size:var(--text-body);font-weight:600;color:var(--ink-950);">Puerto Montt, Chile</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Teléfono</div>
+          <div style="font-size:var(--text-body);font-weight:600;color:var(--ink-950);">+56 9 74804446</div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--text-muted);margin-bottom:6px;">Correo</div>
+          <div style="font-size:var(--text-body);font-weight:600;color:var(--ink-950);">contacto@hauss.cl</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="{{ footerStyle }}">
+    <div style="{{ footerInnerStyle }}">
+      <div style="{{ footerTopStyle }}">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,2rem + 4vw,5rem);letter-spacing:var(--ls-tight);color:#fff;line-height:1;">HAUSS</div>
+        <div style="{{ footerLinksStyle }}">
+          <a href="#nosotros" style="color:var(--text-inverse-muted);font-size:var(--text-body-sm);font-weight:600;">Nosotros</a>
+          <a href="#proyectos" style="color:var(--text-inverse-muted);font-size:var(--text-body-sm);font-weight:600;">Proyectos</a>
+          <a href="#contacto" style="color:var(--text-inverse-muted);font-size:var(--text-body-sm);font-weight:600;">Contacto</a>
+          <a href="https://www.instagram.com/constructorahauss/" style="color:var(--text-inverse-muted);font-size:var(--text-body-sm);font-weight:600;">Instagram</a>
+        </div>
+      </div>
+      <div style="{{ footerBottomStyle }}">
+        <div>© 2026 Constructora Hauss</div>
+        <div>Puerto Montt, Chile · contacto@hauss.cl</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: typeof window !== 'undefined' && window.innerWidth < 820, menuOpen: false };
+
+  componentDidMount() {
+    this._onResize = () => {
+      const isMobile = window.innerWidth < 820;
+      if (isMobile !== this.state.isMobile) this.setState({ isMobile });
+    };
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  renderVals() {
+    const m = this.state.isMobile;
+    const padX = m ? 20 : 64;
+    const padY = m ? 56 : 96;
+    const sec = { padding: `${padY}px ${padX}px` };
+    return {
+      pageStyle: { fontFamily: 'var(--font-body)', background: 'var(--surface-page)', overflowX: 'hidden' },
+
+      navOuterStyle: { borderBottom: '1px solid var(--border-default)', position: 'sticky', top: 0, background: 'var(--surface-page)', zIndex: 10, width: '100%' },
+      navStyle: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, padding: m ? '16px 20px' : '20px 64px', maxWidth: 1500, margin: '0 auto' },
+      navLinksStyle: { display: m ? 'none' : 'flex', gap: 'var(--space-6)' },
+      navRightStyle: { display: 'flex', alignItems: 'center', gap: 12 },
+      ctaLinkStyle: { display: m ? 'none' : 'block' },
+      burgerButtonStyle: { display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 5, width: 36, height: 36, background: 'transparent', border: '1px solid var(--border-strong)', borderRadius: 'var(--radius-md)', cursor: 'pointer', padding: 0, alignItems: 'center' },
+      burgerLineStyle: { width: 16, height: 2, background: 'var(--ink-950)' },
+      isMobile: m,
+      menuOpen: this.state.menuOpen && m,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      mobileMenuStyle: { position: 'sticky', top: 65, zIndex: 9, background: 'var(--surface-page)', borderBottom: '1px solid var(--border-default)', display: 'flex', flexDirection: 'column', padding: '8px 20px 20px' },
+      mobileLinkStyle: { padding: '14px 0', borderBottom: '1px solid var(--border-default)', fontSize: 'var(--text-body)', fontWeight: 600 },
+
+      heroStyle: { display: 'grid', gridTemplateColumns: m ? '1fr' : '1.05fr 1fr', background: 'var(--yellow-500)' },
+      heroCopyStyle: { padding: m ? '48px 20px 56px' : '112px 64px', display: 'flex', flexDirection: 'column', gap: 24, justifyContent: 'center' },
+      heroTitleStyle: { fontSize: 'var(--text-display-xl)', color: 'var(--ink-950)', margin: 0, lineHeight: 'var(--lh-tight)', letterSpacing: 'var(--ls-tight)' },
+      heroImageWrapStyle: { position: 'relative', minHeight: m ? 300 : 560 },
+
+      aboutStyle: { ...sec, maxWidth: 1500, margin: '0 auto', display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1.15fr', gap: m ? 40 : 72, alignItems: 'center' },
+      aboutImageWrapStyle: { position: 'relative', paddingTop: 28, paddingLeft: 28 },
+      aboutBlockAccentStyle: { position: 'absolute', top: 0, left: 0, width: m ? 120 : 180, height: m ? 120 : 180, background: 'var(--pink-300)' },
+      aboutImageStyle: { position: 'relative', width: '100%', aspectRatio: '4/5', objectFit: 'cover', display: 'block', borderRadius: 'var(--radius-md)' },
+
+      quoteStyle: { position: 'relative', overflow: 'hidden', background: 'var(--surface-alt)' },
+      quoteInnerStyle: { position: 'relative', maxWidth: 1500, margin: '0 auto', padding: m ? '56px 20px' : '88px 64px', display: 'flex', flexDirection: 'column', gap: 28, alignItems: 'flex-start' },
+      quoteTextStyle: { position: 'relative', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 'var(--text-display-md)', lineHeight: 'var(--lh-snug)', letterSpacing: 'var(--ls-tight)', color: 'var(--ink-950)', margin: 0, maxWidth: 900 },
+      quoteSquare1Style: { position: 'absolute', top: m ? -30 : -40, right: m ? -30 : 80, width: m ? 90 : 140, height: m ? 90 : 140, background: 'var(--yellow-500)' },
+      quoteSquare2Style: { position: 'absolute', bottom: m ? -50 : -60, right: m ? -20 : -40, width: m ? 110 : 200, height: m ? 110 : 200, background: 'var(--pink-300)' },
+      quoteSquare3Style: { position: 'absolute', bottom: m ? 30 : 40, right: m ? 90 : 320, width: m ? 20 : 32, height: m ? 20 : 32, border: '2px solid var(--ink-950)' },
+
+      valuesSectionStyle: { ...sec, maxWidth: 1500, margin: '0 auto' },
+      valuesHeaderStyle: { marginBottom: m ? 32 : 48 },
+      missionGridStyle: { display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3,1fr)', gap: m ? 16 : 24, alignItems: 'stretch' },
+      missionCardStyle: { border: '1px solid var(--border-strong)', borderRadius: 'var(--radius-md)', padding: m ? 24 : 32, background: 'var(--surface-card)' },
+      missionCardAccentStyle: { border: '1px solid var(--border-strong)', borderRadius: 'var(--radius-md)', padding: m ? 24 : 32, background: 'var(--pink-100)' },
+
+      valuesListStyle: { display: 'flex', flexDirection: 'column', gap: 10, marginTop: 4 },
+      valueItemStyle: { display: 'flex', alignItems: 'baseline', gap: 10 },
+
+      projectsSectionStyle: { background: 'var(--ink-950)' },
+      projectsInnerStyle: { ...sec, maxWidth: 1500, margin: '0 auto' },
+      projectsHeaderStyle: { marginBottom: m ? 28 : 48 },
+      projectsGridStyle: { display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(2,1fr)', gap: m ? 20 : 24 },
+      projectCardStyle: { background: 'var(--surface-card)', borderRadius: 'var(--radius-md)', overflow: 'hidden', display: 'flex', flexDirection: 'column' },
+      projectImageWrapStyle: { position: 'relative', aspectRatio: '4/3', background: 'var(--ink-100)', overflow: 'hidden' },
+      projectBodyStyle: { padding: m ? 20 : 24, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' },
+
+      contactSectionStyle: { ...sec, maxWidth: 1500, margin: '0 auto' },
+      contactGridStyle: { display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1.1fr', gridTemplateAreas: m ? '"heading" "form" "info"' : '"heading form" "info form"', gap: m ? 32 : 72, alignItems: 'start' },
+      contactHeadingStyle: { gridArea: 'heading' },
+      contactInfoStyle: { gridArea: 'info', display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(2,1fr)', gap: 20, paddingTop: 28, borderTop: '1px solid var(--border-default)', alignSelf: 'start' },
+      formStyle: { gridArea: 'form', display: 'flex', flexDirection: 'column', gap: 18, border: '1px solid var(--border-strong)', borderRadius: 'var(--radius-md)', padding: m ? 24 : 40, background: 'var(--surface-card)' },
+      formRowStyle: { display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(2,1fr)', gap: 18 },
+
+      footerStyle: { background: 'var(--ink-950)' },
+      footerInnerStyle: { maxWidth: 1500, margin: '0 auto', padding: m ? '48px 20px 24px' : '72px 64px 32px' },
+      footerTopStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 24 : 48, justifyContent: 'space-between', alignItems: m ? 'flex-start' : 'flex-end', paddingBottom: m ? 28 : 40, borderBottom: '1px solid var(--ink-700)' },
+      footerLinksStyle: { display: 'flex', flexWrap: 'wrap', gap: 24 },
+      footerBottomStyle: { display: 'flex', flexDirection: m ? 'column' : 'row', gap: 8, justifyContent: 'space-between', paddingTop: 24, fontSize: 13, color: 'var(--text-inverse-muted)' },
+
+      values: [
+        { num: '01', label: 'Honestidad' },
+        { num: '02', label: 'Compromiso con la calidad' },
+        { num: '03', label: 'Mejora continua' },
+        { num: '04', label: 'Trabajo en equipo y respeto mutuo' },
+        { num: '05', label: 'Inclusión' },
+      ],
+      projects: [
+        { title: 'Casa Arancibia', imageStyle: { width: '100%', height: '100%', backgroundImage: 'url(https://hauss.cl/img/casa1.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' } },
+        { title: 'Casa Aguirre', imageStyle: { width: '100%', height: '100%', backgroundImage: 'url(https://hauss.cl/img/casa2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' } },
+        { title: 'Casa Parpalén', imageStyle: { width: '100%', height: '100%', backgroundImage: 'url(https://hauss.cl/img/landing2.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' } },
+        { title: 'Casa Flottes-Ciorba', imageStyle: { width: '100%', height: '100%', backgroundImage: 'url(https://hauss.cl/img/casa4.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' } },
+      ],
+      handleSubmit: (e) => { e.preventDefault(); },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

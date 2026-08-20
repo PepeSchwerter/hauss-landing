@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAUSS · Constructora</title>
+<meta name="description" content="Empresa Constructora Hauss. Obras nuevas y remodelaciones llave en mano en Puerto Montt, Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<style>
+/* ============ Tokens ============ */
+:root{
+  --ink-950:#0c1821;--ink-800:#1b2b38;--ink-700:#2d4152;--ink-600:#435868;--ink-500:#5c7286;--ink-400:#8a99a6;--ink-300:#b7c1c9;--ink-200:#dbe1e5;--ink-100:#eef1f2;--ink-50:#f7f8f9;
+  --paper-0:#ffffff;--paper-50:#f7f4ee;
+  --yellow-100:#fef9d6;--yellow-500:#fde74c;--yellow-600:#e3cd2f;--yellow-700:#c2ad1c;
+  --red-100:#f9dede;--red-500:#cc3434;--red-600:#a82929;
+  --pink-100:#faded9;--pink-300:#f4cbc6;--pink-500:#e0a89f;
+
+  --surface-page:var(--paper-0);
+  --surface-alt:var(--paper-50);
+  --surface-inverse:var(--ink-950);
+  --surface-soft:var(--pink-100);
+  --surface-card:var(--paper-0);
+  --text-primary:var(--ink-950);
+  --text-secondary:var(--ink-600);
+  --text-muted:var(--ink-400);
+  --text-inverse:var(--paper-0);
+  --text-inverse-muted:var(--ink-300);
+  --border-default:var(--ink-200);
+  --border-strong:var(--ink-950);
+  --accent-cta:var(--yellow-500);
+  --accent-cta-hover:var(--yellow-600);
+  --accent-cta-text:var(--ink-950);
+  --accent-alert:var(--red-500);
+  --accent-alert-hover:var(--red-600);
+  --accent-soft:var(--pink-300);
+  --focus-ring:var(--ink-950);
+
+  --font-display:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-body:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  --text-display-xl:clamp(2.75rem,2rem + 3.2vw,4.75rem);
+  --text-display-lg:clamp(2.25rem,1.7rem + 2.4vw,3.5rem);
+  --text-display-md:clamp(1.75rem,1.4rem + 1.4vw,2.5rem);
+  --text-heading:1.5rem;
+  --text-subheading:1.125rem;
+  --text-body-lg:1.125rem;
+  --text-body:1rem;
+  --text-body-sm:0.875rem;
+  --text-caption:0.75rem;
+  --lh-tight:1.05;
+  --lh-snug:1.2;
+  --lh-normal:1.5;
+  --lh-relaxed:1.65;
+  --fw-regular:400;
+  --fw-medium:500;
+  --fw-semibold:600;
+  --fw-bold:700;
+  --fw-extrabold:800;
+  --ls-tight:-0.02em;
+  --ls-normal:0;
+  --ls-wide:0.08em;
+
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-8:48px;--space-10:64px;--space-12:96px;--space-16:128px;
+  --radius-sm:2px;--radius-md:4px;--radius-lg:4px;--radius-full:999px;
+  --shadow-card:0 1px 0 rgba(12,24,33,0.06);
+  --shadow-pop:0 12px 32px rgba(12,24,33,0.16);
+  --duration-fast:120ms;
+  --duration-normal:200ms;
+  --ease-standard:cubic-bezier(.4,0,.2,1);
+  --container-max:1500px;
+}
+
+/* ============ Reset / base ============ */
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-page);color:var(--text-primary);font-family:var(--font-body);font-size:var(--text-body);line-height:var(--lh-normal);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);margin:0}
+p{margin:0}
+a{color:var(--ink-950);text-decoration:none}
+a:hover{color:var(--red-500)}
+button{font-family:var(--font-body)}
+img{max-width:100%}
+
+/* ============ Buttons ============ */
+.btn{display:inline-flex;align-items:center;gap:8px;justify-content:center;font-family:var(--font-body);font-weight:700;border-radius:var(--radius-md);border:2px solid var(--ink-950);cursor:pointer;text-decoration:none;transition:background var(--duration-fast) var(--ease-standard),color var(--duration-fast) var(--ease-standard);}
+.btn:hover{color:inherit}
+.btn--sm{padding:8px 14px;font-size:var(--text-body-sm)}
+.btn--md{padding:12px 20px;font-size:var(--text-body)}
+.btn--lg{padding:16px 28px;font-size:var(--text-body)}
+.btn--primary{background:var(--accent-cta);color:var(--accent-cta-text);border-color:var(--ink-950)}
+.btn--primary:hover{background:var(--accent-cta-hover);color:var(--accent-cta-text)}
+.btn--dark{background:var(--ink-950);color:#fff;border-color:var(--ink-950)}
+.btn--dark:hover{background:var(--ink-800);color:#fff}
+.btn--ghost{background:transparent;color:var(--ink-950);border-color:var(--ink-950)}
+.btn--ghost:hover{background:var(--ink-950);color:#fff}
+
+/* ============ Tag ============ */
+.tag{display:inline-flex;align-items:center;padding:4px 10px;font-family:var(--font-body);font-weight:600;font-size:var(--text-caption);letter-spacing:var(--ls-wide);text-transform:uppercase;border-radius:var(--radius-sm)}
+.tag--yellow{background:var(--yellow-500);color:var(--ink-950)}
+
+/* ============ Nav ============ */
+.nav-outer{border-bottom:1px solid var(--border-default);position:sticky;top:0;background:var(--surface-page);z-index:10;width:100%}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 64px;max-width:var(--container-max);margin:0 auto}
+.nav__brand{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-0.02em;color:var(--ink-950)}
+.nav__links{display:flex;gap:var(--space-6)}
+.nav__links a{font-size:var(--text-body-sm);font-weight:600}
+.nav__right{display:flex;align-items:center;gap:12px}
+.burger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;background:transparent;border:1px solid var(--border-strong);border-radius:var(--radius-md);cursor:pointer;padding:0}
+.burger__line{width:16px;height:2px;background:var(--ink-950)}
+.mobile-menu{position:sticky;top:65px;z-index:9;background:var(--surface-page);border-bottom:1px solid var(--border-default);display:none;flex-direction:column;padding:8px 20px 20px}
+.mobile-menu a{padding:14px 0;border-bottom:1px solid var(--border-default);font-size:var(--text-body);font-weight:600}
+.mobile-menu.is-open{display:flex}
+
+@media (max-width:819px){
+  .nav{padding:16px 20px}
+  .nav__links{display:none}
+  .nav__right .btn{display:none}
+  .burger{display:flex}
+}
+
+/* ============ Hero ============ */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;background:var(--yellow-500)}
+.hero__copy{padding:112px 64px;display:flex;flex-direction:column;gap:24px;justify-content:center}
+.hero__title{font-size:var(--text-display-xl);color:var(--ink-950)}
+.hero__lead{font-size:var(--text-body-lg);color:var(--ink-800);max-width:460px;line-height:var(--lh-relaxed)}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero__image-wrap{position:relative;min-height:560px}
+.hero__image-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+
+@media (max-width:819px){
+  .hero{grid-template-columns:1fr}
+  .hero__copy{padding:48px 20px 56px}
+  .hero__image-wrap{min-height:300px}
+}
+
+/* ============ Section base ============ */
+.section{padding:96px 64px;max-width:var(--container-max);margin:0 auto}
+@media (max-width:819px){.section{padding:56px 20px}}
+
+/* ============ About ============ */
+.about{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center}
+.about__image-wrap{position:relative;padding-top:28px;padding-left:28px}
+.about__accent{position:absolute;top:0;left:0;width:180px;height:180px;background:var(--pink-300)}
+.about__image{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:var(--radius-md)}
+.about h2{font-size:var(--text-display-md);margin:0 0 20px;color:var(--text-primary);line-height:var(--lh-snug)}
+.about p{font-size:var(--text-body-lg);color:var(--text-secondary);line-height:var(--lh-relaxed);margin:0 0 16px}
+.about p:last-of-type{margin:0 0 28px}
+
+@media (max-width:819px){
+  .about{grid-template-columns:1fr;gap:40px}
+  .about__accent{width:120px;height:120px}
+}
+
+/* ============ Quote ============ */
+.quote{position:relative;overflow:hidden;background:var(--surface-alt)}
+.quote__inner{position:relative;max-width:var(--container-max);margin:0 auto;padding:88px 64px;display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+.quote__text{position:relative;font-family:var(--font-display);font-weight:800;font-size:var(--text-display-md);line-height:var(--lh-snug);letter-spacing:var(--ls-tight);color:var(--ink-950);margin:0;max-width:900px}
+.quote__square-1{position:absolute;top:-40px;right:80px;width:140px;height:140px;background:var(--yellow-500)}
+.quote__square-2{position:absolute;bottom:-60px;right:-40px;width:200px;height:200px;background:var(--pink-300)}
+.quote__square-3{position:absolute;bottom:40px;right:320px;width:32px;height:32px;border:2px solid var(--ink-950)}
+
+@media (max-width:819px){
+  .quote__inner{padding:56px 20px}
+  .quote__square-1{top:-30px;right:30px;width:90px;height:90px}
+  .quote__square-2{bottom:-50px;right:-20px;width:110px;height:110px}
+  .quote__square-3{bottom:30px;right:90px;width:20px;height:20px}
+}
+
+/* ============ Values ============ */
+.values__header{margin-bottom:48px}
+.values__header h2{font-size:var(--text-display-md);color:var(--text-primary)}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.mission-card{border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:32px;background:var(--surface-card)}
+.mission-card--accent{background:var(--pink-100)}
+.mission-card__num{font-family:var(--font-display);font-weight:800;font-size:13px;letter-spacing:var(--ls-wide);color:var(--ink-400)}
+.mission-card--accent .mission-card__num{color:var(--ink-600)}
+.mission-card h3{font-size:var(--text-heading);margin:8px 0 12px;color:var(--ink-950)}
+.mission-card p{font-size:var(--text-body);color:var(--text-secondary);line-height:var(--lh-relaxed)}
+.values-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.value-item{display:flex;align-items:baseline;gap:10px}
+.value-item__num{font-family:var(--font-display);font-weight:800;font-size:12px;color:var(--ink-600)}
+.value-item__label{font-size:var(--text-body);font-weight:600;color:var(--ink-950)}
+
+@media (max-width:819px){
+  .values__header{margin-bottom:32px}
+  .mission-grid{grid-template-columns:1fr;gap:16px}
+  .mission-card{padding:24px}
+}
+
+/* ============ Projects ============ */
+.projects{background:var(--ink-950)}
+.projects__header{margin-bottom:48px}
+.projects__header h2{font-size:var(--text-display-md);color:#fff}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.project-card{background:var(--surface-card);border-radius:var(--radius-md);overflow:hidden;display:flex;flex-direction:column}
+.project-image-wrap{position:relative;aspect-ratio:4/3;background:var(--ink-100);overflow:hidden}
+.project-image-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.project-body{padding:24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.project-body h3{font-family:var(--font-display);font-weight:800;font-size:var(--text-heading);margin:0;color:var(--ink-950)}
+
+@media (max-width:819px){
+  .projects__header{margin-bottom:28px}
+  .projects-grid{grid-template-columns:1fr;gap:20px}
+  .project-body{padding:20px}
+}
+
+/* ============ Contact ============ */
+.contact__grid{display:grid;grid-template-columns:1fr 1.1fr;grid-template-areas:"heading form" "info form";gap:72px;align-items:start}
+.contact__heading{grid-area:heading}
+.contact__heading h2{font-size:var(--text-display-lg);margin:0 0 20px;color:var(--text-primary);line-height:var(--lh-snug)}
+.contact__heading p{font-size:var(--text-body-lg);color:var(--text-secondary);line-height:var(--lh-relaxed);max-width:420px}
+.contact__info{grid-area:info;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-top:28px;border-top:1px solid var(--border-default);align-self:start}
+.contact__info-label{font-size:11px;font-weight:700;letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.contact__info-value{font-size:var(--text-body);font-weight:600;color:var(--ink-950)}
+
+.form{grid-area:form;display:flex;flex-direction:column;gap:18px;border:1px solid var(--border-strong);border-radius:var(--radius-md);padding:40px;background:var(--surface-card)}
+.form__row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.field{display:flex;flex-direction:column;gap:6px;font-family:var(--font-body)}
+.field__label{font-size:var(--text-body-sm);font-weight:600;color:var(--text-primary)}
+.field input,.field textarea{padding:12px 14px;font-size:var(--text-body);font-family:var(--font-body);border:2px solid var(--ink-950);border-radius:var(--radius-md);background:#fff;color:var(--text-primary);outline:none}
+.field textarea{resize:vertical}
+.field input:focus,.field textarea:focus{box-shadow:0 0 0 3px var(--yellow-500)}
+.form__status{font-size:var(--text-body-sm);font-weight:600;min-height:20px}
+.form__status.is-success{color:var(--ink-800)}
+.form__status.is-error{color:var(--red-500)}
+
+@media (max-width:819px){
+  .contact__grid{grid-template-columns:1fr;grid-template-areas:"heading" "form" "info";gap:32px}
+  .contact__info{grid-template-columns:1fr}
+  .form{padding:24px}
+  .form__row{grid-template-columns:1fr}
+}
+
+/* ============ Footer ============ */
+.footer{background:var(--ink-950)}
+.footer__inner{max-width:var(--container-max);margin:0 auto;padding:72px 64px 32px}
+.footer__top{display:flex;flex-direction:row;gap:48px;justify-content:space-between;align-items:flex-end;padding-bottom:40px;border-bottom:1px solid var(--ink-700)}
+.footer__mark{font-family:var(--font-display);font-weight:800;font-size:clamp(2.5rem,2rem + 4vw,5rem);letter-spacing:var(--ls-tight);color:#fff;line-height:1}
+.footer__links{display:flex;flex-wrap:wrap;gap:24px}
+.footer__links a{color:var(--text-inverse-muted);font-size:var(--text-body-sm);font-weight:600}
+.footer__links a:hover{color:#fff}
+.footer__bottom{display:flex;flex-direction:row;gap:8px;justify-content:space-between;padding-top:24px;font-size:13px;color:var(--text-inverse-muted)}
+
+@media (max-width:819px){
+  .footer__inner{padding:48px 20px 24px}
+  .footer__top{flex-direction:column;gap:24px;align-items:flex-start;padding-bottom:28px}
+  .footer__bottom{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <nav class="nav-outer">
+    <div class="nav">
+      <div class="nav__brand">HAUSS</div>
+      <div class="nav__links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#valores">Misión y valores</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav__right">
+        <a href="#contacto" class="btn btn--primary btn--sm">Contáctanos</a>
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#valores">Misión y valores</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+  <section class="hero">
+    <div class="hero__copy">
+      <h1 class="hero__title">Concreta tus ideas.</h1>
+      <p class="hero__lead">Obras nuevas y remodelaciones en el área privada y pública, con la modalidad de llave en mano. Un solo equipo a cargo de tu proyecto, de principio a fin.</p>
+      <div class="hero__actions">
+        <a href="#contacto" class="btn btn--dark btn--lg">Contáctanos</a>
+        <a href="#proyectos" class="btn btn--ghost btn--lg">Ver proyectos</a>
+      </div>
+    </div>
+    <div class="hero__image-wrap">
+      <img src="https://hauss.cl/img/landing2.jpg" alt="Casa Parpalén">
+    </div>
+  </section>
+
+  <section id="nosotros" class="section about">
+    <div class="about__image-wrap">
+      <div class="about__accent"></div>
+      <img class="about__image" src="https://hauss.cl/img/casa2.jpg" alt="Casa Aguirre">
+    </div>
+    <div>
+      <h2>Nuestra empresa</h2>
+      <p>Empresa Constructora Hauss nació en el Sur de Chile en el año 2014, como resultado de un anhelo del matrimonio de una arquitecto y un constructor civil, que en conjunto volcaron sus años de experiencia en proyectos de construcción y arquitectura.</p>
+      <p>Desarrollamos proyectos tanto en el área privada como pública, obras nuevas o remodelaciones, con la modalidad de llave en mano.</p>
+      <a href="#valores" class="btn btn--ghost btn--md">Cómo trabajamos →</a>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="quote__square-1"></div>
+    <div class="quote__square-2"></div>
+    <div class="quote__square-3"></div>
+    <div class="quote__inner">
+      <p class="quote__text">En HAUSS buscamos hacer las cosas bien, poner toda nuestra pasión y esfuerzo para desarrollar el mejor proyecto.</p>
+      <a href="#contacto" class="btn btn--dark btn--lg" style="position:relative;">Contáctanos</a>
+    </div>
+  </section>
+
+  <section id="valores" class="section">
+    <div class="values__header">
+      <h2>Cómo trabajamos</h2>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="mission-card__num">01</div>
+        <h3>Misión</h3>
+        <p>Ofrecer una atención personalizada, de acuerdo a los requerimientos de nuestros clientes, asesorándolos en todas las etapas de su proyecto.</p>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card__num">02</div>
+        <h3>Visión</h3>
+        <p>Construir obras de calidad para nuestros clientes, ya sean grandes o pequeños proyectos. Buscar una mejora continua en nuestros procesos de construcción. Propiciar un clima laboral agradable para trabajar, con el fin de que nuestro personal entregue lo mejor de sí.</p>
+      </div>
+      <div class="mission-card mission-card--accent">
+        <div class="mission-card__num">03</div>
+        <h3>Valores</h3>
+        <div class="values-list">
+          <div class="value-item"><span class="value-item__num">01</span><span class="value-item__label">Honestidad</span></div>
+          <div class="value-item"><span class="value-item__num">02</span><span class="value-item__label">Compromiso con la calidad</span></div>
+          <div class="value-item"><span class="value-item__num">03</span><span class="value-item__label">Mejora continua</span></div>
+          <div class="value-item"><span class="value-item__num">04</span><span class="value-item__label">Trabajo en equipo y respeto mutuo</span></div>
+          <div class="value-item"><span class="value-item__num">05</span><span class="value-item__label">Inclusión</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos" class="projects">
+    <div class="section projects__inner">
+      <div class="projects__header">
+        <h2>Proyectos</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image-wrap"><img src="https://hauss.cl/img/casa1.jpg" alt="Casa Arancibia"></div>
+          <div class="project-body">
+            <h3>Casa Arancibia</h3>
+            <span class="tag tag--yellow">Residencial</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrap"><img src="https://hauss.cl/img/casa2.jpg" alt="Casa Aguirre"></div>
+          <div class="project-body">
+            <h3>Casa Aguirre</h3>
+            <span class="tag tag--yellow">Residencial</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrap"><img src="https://hauss.cl/img/landing2.jpg" alt="Casa Parpalén"></div>
+          <div class="project-body">
+            <h3>Casa Parpalén</h3>
+            <span class="tag tag--yellow">Residencial</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image-wrap"><img src="https://hauss.cl/img/casa4.jpg" alt="Casa Flottes-Ciorba"></div>
+          <div class="project-body">
+            <h3>Casa Flottes-Ciorba</h3>
+            <span class="tag tag--yellow">Residencial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section">
+    <div class="contact__grid">
+      <div class="contact__heading">
+        <h2>Cuéntanos sobre tu proyecto</h2>
+        <p>Escríbenos y te asesoramos desde la primera idea hasta la entrega de la obra.</p>
+      </div>
+
+      <form class="form" id="contactForm" novalidate>
+        <div class="form__row">
+          <label class="field">
+            <span class="field__label">Nombre</span>
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Teléfono</span>
+            <input type="tel" name="telefono" placeholder="+56 9 1234 5678">
+          </label>
+        </div>
+        <label class="field">
+          <span class="field__label">Correo electrónico</span>
+          <input type="email" name="email" placeholder="tu@email.com" required>
+        </label>
+        <label class="field">
+          <span class="field__label">Tipo de proyecto y detalles</span>
+          <textarea name="mensaje" placeholder="Obra nueva, remodelación, ubicación, plazos…" rows="4" required></textarea>
+        </label>
+        <div>
+          <button type="submit" class="btn btn--primary btn--lg">Enviar</button>
+        </div>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact__info">
+        <div>
+          <div class="contact__info-label">Ubicación</div>
+          <div class="contact__info-value">Puerto Montt, Chile</div>
+        </div>
+        <div>
+          <div class="contact__info-label">Teléfono</div>
+          <div class="contact__info-value">+56 9 74804446</div>
+        </div>
+        <div>
+          <div class="contact__info-label">Correo</div>
+          <div class="contact__info-value">contacto@hauss.cl</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__mark">HAUSS</div>
+        <div class="footer__links">
+          <a href="#nosotros">Nosotros</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#contacto">Contacto</a>
+          <a href="https://www.instagram.com/constructorahauss/">Instagram</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div>© 2026 Constructora Hauss</div>
+        <div>Puerto Montt, Chile · contacto@hauss.cl</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var burgerBtn = document.getElementById('burgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  burgerBtn.addEventListener('click', function () {
+    var isOpen = mobileMenu.classList.toggle('is-open');
+    burgerBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  mobileMenu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      mobileMenu.classList.remove('is-open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  var form = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.textContent = 'Gracias, te contactaremos pronto.';
+    status.className = 'form__status is-success';
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>

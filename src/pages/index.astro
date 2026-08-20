@@ -1,0 +1,39 @@
+---
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config";
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "../components/sections/Navbar";
+import { Hero } from "../components/sections/Hero";
+import { About } from "../components/sections/About";
+import { Quote } from "../components/sections/Quote";
+import { Values } from "../components/sections/Values";
+import { Projects } from "../components/sections/Projects";
+import { Contact } from "../components/sections/Contact";
+import { Footer } from "../components/sections/Footer";
+import type { Project } from "../data/content";
+import {
+  navLinks,
+  footerLinks,
+  values,
+  contactDetails,
+} from "../data/content";
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const projectEntries = await reader.collections.projects.all();
+const projects: Project[] = projectEntries.map(({ entry }) => ({
+  title: entry.title,
+  tag: entry.tag,
+  images: entry.photos.filter((photo): photo is string => photo !== null),
+}));
+---
+
+<Layout>
+	<Navbar links={navLinks} />
+	<Hero />
+	<About />
+	<Quote />
+	<Values values={values} />
+	<Projects projects={projects} />
+	<Contact details={contactDetails} client:visible />
+	<Footer links={footerLinks} />
+</Layout>
